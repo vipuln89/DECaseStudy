@@ -10,6 +10,7 @@ Please use the JSON file (140MB, ol_cdump.json) and perform the following: 
 3. Make sure your data set is cleaned, so we for example don't include in results with empty/null "titles" and "number of pages" is greater than 20 and "publishing year" is after 1950. If you decided to add additional filters due to the data profiling exercise above, pls. state them as well. Count the rows in the filtered dataset.
 
 Run the following queries on the cleaned dataset:
+
 4. Get the first book / author which was published - and the last one. 
 5. Find the top 5 genres with most published books.
 6. Retrieve the top 5 authors who (co-)authored the most books.
@@ -17,6 +18,7 @@ Run the following queries on the cleaned dataset:
 8. Find the number of authors and number of books published per month for years between 1950 and 1970!
 
 Let's assume that you want to create a very simple interactive website (pagesbyauthor.com) where a user can provide an author and the website will provide the total number of pages that this author has written across all the books. Please create an architecture to achieve this (no need to do any implementation on this), keeping the following in mind:
+
 9. How will you handle changing or evolving schema? 
 10. How do you want to store/partition the data?
 11. Would you go for on-premise or for a cloud-based solution? Why?
