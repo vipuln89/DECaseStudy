@@ -1,7 +1,9 @@
-Download the data - https://s3-eu-west-1.amazonaws.com/csparkdata/ol_cdump.json using following command - 
+Download the data - https://s3-eu-west-1.amazonaws.com/csparkdata/ol_cdump.json using following command:
+
 wget --continue https://s3-eu-west-1.amazonaws.com/csparkdata/ol_cdump.json -O /tmp/ol_cdump.json
 
 Update the path in line 13 to point to the location you download this data in
+
 Ensure that Python and Spark are installed on the machine
 
 Please use the JSON file (140MB, ol_cdump.json) and perform the following: 
