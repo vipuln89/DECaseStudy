@@ -141,9 +141,9 @@ spark.sql("(select book, author, date_new from library where date_new = "
 
 
 #Solution - Query Number 2 - Find the top 5 genres with most published books
-spark.sql("select genres, count(distinct book) as num_of_books "
+spark.sql("select replace(genres ,'.','') as gen, count(distinct book) as num_of_books "
           "from library where genres is not null "
-          "group by genres "
+          "group by gen "
           "order by num_of_books DESC "
           "limit 5").show()
 
