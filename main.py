@@ -147,11 +147,14 @@ spark.sql("select genres, count(distinct book) as num_of_books "
           "order by num_of_books DESC "
           "limit 5").show()
 
-#Solution - Query Number 3 - Retrieve the top 5 authors who (co-)authored the most books. - Still Working
-spark.sql("select author from library where book IN "
-            "(select book from "
-                "(select book, count(distinct author) as authorCount from library group by book having authorCount > 1 order by authorCount DESC)) "
-          "limit 5").show()
+#Solution - Query Number 3 - Retrieve the top 5 authors who (co-)authored the most books
+spark.sql("select author_combo, count(author_combo) as co_authored_together from "
+            "(select concat(author,'_&_', co_author) as author_combo from "
+                "(select a.book, a.author, b.author as co_author from library a "
+                "inner join library b on a.book = b.book "
+                "where a.author <> b.author)) "
+          "group by author_combo order by co_authored_together DESC LIMIT 5")\
+    .show(truncate=False)
 
 #Solution - Query Number 4 - Per publish year, get the number of authors that published at least one book
 spark.sql("select published_year, count(author) as num_of_authors from "
